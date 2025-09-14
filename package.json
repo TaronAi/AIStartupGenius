@@ -1,0 +1,22 @@
+{
+  "name": "aistartupgenius",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["client", "server", "shared"],
+  "scripts": {
+    "server:dev": "npm run dev -w server",
+    "client:dev": "npm run dev -w client",
+    "dev": "concurrently -k \"npm:server:dev\" \"npm:client:dev\"",
+    "server:build": "npm run build -w server",
+    "client:build": "npm run build -w client",
+    "build": "npm run server:build && npm run client:build",
+    "server:start": "npm run start -w server",
+    "client:preview": "npm run preview -w client",
+    "start": "concurrently -k \"npm:server:start\" \"npm:client:preview\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.6.2"
+  }
+}
+
